@@ -12,6 +12,8 @@ All notable changes to this project will be documented in this file.
 
 - 0.1.0 rn project to bellfre
 
+- 01.2 foundations/spec/manifest & capabilites files updated
+
 
 
 ### FIX
