@@ -14,9 +14,18 @@ All notable changes to this project will be documented in this file.
 
 
 
+### FIX
+
+
+- 0.1.1 rm old files - bellfre switchover should be complete
+
+
+
 ### FIXES
 
 
 - 0.0.5 mv files around for changelog to work
+
+- 0.1.1 more rn file clean up
 
 
