@@ -1,4 +1,4 @@
-# Bellfry
+# Bellfre
 
 ## An Open Discovery Layer for AI Agents
 
@@ -14,9 +14,9 @@ Artificial intelligence is rapidly evolving from isolated chatbots into autonomo
 
 Today's web provides mature solutions for human discovery. Search engines index websites, DNS resolves domain names, and APIs allow applications to exchange information. However, there is no widely adopted, lightweight mechanism that allows AI agents to advertise their capabilities, publish connection information, and become discoverable by people, software, or other AI agents.
 
-Bellfry is an exploration of that missing layer.
+Bellfre is an exploration of that missing layer.
 
-Rather than building another language model or chatbot, Bellfry focuses on **agent identity and discovery**. It proposes a simple, open approach for describing what an AI agent is, what it can do, how it can be contacted, and how it interoperates with other systems.
+Rather than building another language model or chatbot, Bellfre focuses on **agent identity and discovery**. It proposes a simple, open approach for describing what an AI agent is, what it can do, how it can be contacted, and how it interoperates with other systems.
 
 The long-term vision is to provide a common foundation that enables AI agents to participate in an open ecosystem while remaining independent of any specific AI vendor or technology platform.
 
@@ -62,7 +62,7 @@ That approach does not scale.
 
 # Vision
 
-Bellfry proposes that every AI-enabled service should be capable of publishing a lightweight machine-readable identity describing:
+Bellfre proposes that every AI-enabled service should be capable of publishing a lightweight machine-readable identity describing:
 
 * Who the agent represents
 * What capabilities it provides
@@ -71,15 +71,15 @@ Bellfry proposes that every AI-enabled service should be capable of publishing a
 * Where requests should be directed
 * Version and compatibility information
 
-Rather than replacing existing APIs, Bellfry complements them by making services easier to discover and understand.
+Rather than replacing existing APIs, Bellfre complements them by making services easier to discover and understand.
 
-In this model, Bellfry acts as a beacon.
+In this model, Bellfre acts as a beacon.
 
 It announces an agent's presence without dictating how the agent itself is implemented.
 
 ---
 
-# The Bellfry Manifest
+# The Bellfre Manifest
 
 At the center of the proposal is a simple concept:
 
@@ -109,7 +109,7 @@ Its purpose is discovery rather than execution.
 
 # Discovery
 
-Bellfry envisions a searchable registry capable of indexing agent manifests.
+Bellfre envisions a searchable registry capable of indexing agent manifests.
 
 Rather than searching for websites, applications could search for capabilities.
 
@@ -142,13 +142,13 @@ A customer planning a home purchase could interact with:
 
 Each system contributes specialized knowledge while remaining independently managed.
 
-Bellfry seeks to simplify the process of discovering those services.
+Bellfre seeks to simplify the process of discovering those services.
 
 ---
 
 # Design Principles
 
-Bellfry is guided by several core principles.
+Bellfre is guided by several core principles.
 
 ## Open
 
@@ -164,7 +164,7 @@ Publishing an agent should require only a small manifest rather than a complex d
 
 ## Vendor Neutral
 
-Bellfry should not depend on any single AI provider or language model.
+Bellfre should not depend on any single AI provider or language model.
 
 Whether an agent uses GPT, Gemini, Claude, open-source models, or future technologies should be irrelevant.
 
@@ -184,13 +184,13 @@ Developers should be able to publish an agent in minutes rather than days.
 
 # Relationship to Existing Standards
 
-Bellfry does not seek to replace existing communication protocols.
+Bellfre does not seek to replace existing communication protocols.
 
 Instead, it complements them.
 
-Existing technologies such as REST APIs, Model Context Protocol (MCP), Google's Agent-to-Agent (A2A) initiatives, and future interoperability standards can all coexist with Bellfry.
+Existing technologies such as REST APIs, Model Context Protocol (MCP), Google's Agent-to-Agent (A2A) initiatives, and future interoperability standards can all coexist with Bellfre.
 
-Bellfry focuses on discovery.
+Bellfre focuses on discovery.
 
 Those technologies focus on communication.
 
@@ -232,7 +232,7 @@ Any environment where AI systems expose reusable capabilities may benefit from s
 
 # Business Opportunity
 
-Bellfry is envisioned as both an open specification and a practical ecosystem.
+Bellfre is envisioned as both an open specification and a practical ecosystem.
 
 Potential services include:
 
@@ -285,16 +285,16 @@ Artificial intelligence is changing how software communicates.
 
 The next generation of applications may rely less on manually configured integrations and more on dynamic discovery of specialized services.
 
-Bellfry explores one possible foundation for that future.
+Bellfre explores one possible foundation for that future.
 
-By providing a lightweight, open mechanism for publishing identity and capabilities, Bellfry seeks to make AI agents easier to discover, easier to integrate, and easier to trust.
+By providing a lightweight, open mechanism for publishing identity and capabilities, Bellfre seeks to make AI agents easier to discover, easier to integrate, and easier to trust.
 
 The project is intentionally small in scope but ambitious in vision.
 
-Rather than building another AI model, Bellfry aims to help intelligent systems find one another—creating an open discovery layer that can evolve alongside the next generation of AI applications.
+Rather than building another AI model, Bellfre aims to help intelligent systems find one another—creating an open discovery layer that can evolve alongside the next generation of AI applications.
 
 The future Internet may not simply connect documents.
 
 It may connect intelligence.
 
-Bellfry is an exploration of how that journey might begin.
+Bellfre is an exploration of how that journey might begin.
