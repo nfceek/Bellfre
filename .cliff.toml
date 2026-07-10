@@ -26,7 +26,12 @@ trim = true
 
 [git]
 conventional_commits = true
-filter_unconventional = true
+filter_unconventional = false
+
+commit_preprocessors = [
+    { pattern = "^Initial commit$", replace = "chore: initial repository setup" },
+    { pattern = "^Created files$", replace = "chore: create repository structure" }
+]
 
 commit_parsers = [
     { message = "^feat", group = "Features" },
