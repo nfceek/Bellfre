@@ -1,0 +1,662 @@
+# Bellfry
+
+## An Open Discovery Layer for AI Agents
+
+**Version 0.1 – Concept White Paper**
+
+---
+
+# Executive Summary
+
+Artificial intelligence is rapidly evolving from isolated chatbots into autonomous software capable of communicating with applications, businesses, services, and other AI systems. As this ecosystem grows, one fundamental question remains largely unanswered:
+
+**How do AI agents discover one another?**
+
+Today's web provides mature solutions for human discovery. Search engines index websites, DNS resolves domain names, and APIs allow applications to exchange information. However, there is no widely adopted, lightweight mechanism that allows AI agents to advertise their capabilities, publish connection information, and become discoverable by people, software, or other AI agents.
+
+Bellfry is an exploration of that missing layer.
+
+Rather than building another language model or chatbot, Bellfry focuses on **agent identity and discovery**. It proposes a simple, open approach for describing what an AI agent is, what it can do, how it can be contacted, and how it interoperates with other systems.
+
+The long-term vision is to provide a common foundation that enables AI agents to participate in an open ecosystem while remaining independent of any specific AI vendor or technology platform.
+
+---
+
+# The Problem
+
+The modern Internet was designed primarily for people.
+
+Businesses publish websites.
+
+Search engines index pages.
+
+Browsers display content.
+
+Humans read information.
+
+The emerging AI ecosystem works differently.
+
+Increasingly, software will not simply retrieve web pages—it will seek services capable of performing tasks.
+
+Examples include:
+
+* Scheduling appointments
+* Ordering products
+* Looking up inventory
+* Checking business hours
+* Retrieving technical documentation
+* Calculating mortgage estimates
+* Booking home services
+* Coordinating logistics
+* Querying specialized knowledge
+
+While APIs expose functionality, they do not solve the problem of discovery.
+
+An AI agent must first know that another agent exists before it can communicate with it.
+
+Today this is generally solved by manual configuration or application-specific integrations.
+
+That approach does not scale.
+
+---
+
+# Vision
+
+Bellfry proposes that every AI-enabled service should be capable of publishing a lightweight machine-readable identity describing:
+
+* Who the agent represents
+* What capabilities it provides
+* Which communication protocols it supports
+* How authentication works
+* Where requests should be directed
+* Version and compatibility information
+
+Rather than replacing existing APIs, Bellfry complements them by making services easier to discover and understand.
+
+In this model, Bellfry acts as a beacon.
+
+It announces an agent's presence without dictating how the agent itself is implemented.
+
+---
+
+strength in this;
+
+One refinement that could make the strategy even stronger
+
+I wouldn't position Bellfry as "the agent registry."
+
+I'd position it as "the agent identity standard."
+
+Why?
+
+Because registries can be numerous:
+
+Public registry
+Enterprise registry
+Government registry
+Private company registry
+Industry-specific registry
+
+But if they all understand the same Bellfry Manifest, you've created the interoperability layer.
+
+That changes your role from operating a single service to defining a common language.
+
+If Bellfry became the equivalent of OpenAPI for AI agent identity, then your enterprise products naturally become the reference implementation, management tools, certification, and support—not because customers are forced to use them, but because they're the easiest and most trusted way to adopt the standard.
+
+I think that's a larger and more durable vision than trying to own every registry yourself.
+
+---
+
+
+# The Bellfry Manifest
+
+At the center of the proposal is a simple concept:
+
+An **Agent Manifest**.
+
+The manifest is a lightweight document that describes an agent's public identity.
+
+Example information may include:
+
+* Agent name
+* Organization
+* Description
+* Industry
+* Capabilities
+* Supported protocols
+* Authentication methods
+* Contact endpoint
+* Version
+* Metadata
+* Security information
+
+This document is intentionally lightweight and extensible.
+
+Its purpose is discovery rather than execution.
+
+---
+what is missing;
+
+The part I think is missing...
+
+The registry isn't enough.
+
+You need governance.
+
+Who decides:
+
+required fields?
+deprecated fields?
+versioning?
+authentication?
+capabilities?
+naming?
+
+That becomes the Bellfry Specification.
+
+Think:
+
+Bellfry RFC-001
+
+Agent Manifest
+
+Then
+
+RFC-002
+
+Discovery API
+
+Then
+
+RFC-003
+
+Authentication
+
+Suddenly Bellfry starts looking like a standards project rather than just a startup.
+
+---
+
+# Discovery
+
+Bellfry envisions a searchable registry capable of indexing agent manifests.
+
+Rather than searching for websites, applications could search for capabilities.
+
+Examples:
+
+* Find an HVAC scheduling agent
+* Locate a restaurant ordering service
+* Discover a mortgage qualification assistant
+* Search for inventory lookup services
+* Find weather forecasting providers
+
+The registry becomes a catalog of services rather than a catalog of documents.
+
+---
+
+# Why Discovery Matters
+
+Future software will increasingly orchestrate multiple specialized AI systems.
+
+Rather than one large model attempting to answer every question, systems may delegate work to purpose-built agents.
+
+A customer planning a home purchase could interact with:
+
+* Mortgage agent
+* Insurance agent
+* Home inspection agent
+* Utility provider
+* Moving company
+* County tax information
+
+Each system contributes specialized knowledge while remaining independently managed.
+
+Bellfry seeks to simplify the process of discovering those services.
+
+---
+
+# Design Principles
+
+Bellfry is guided by several core principles.
+
+## Open
+
+The specification should be publicly documented and available for anyone to implement.
+
+---
+
+## Lightweight
+
+Publishing an agent should require only a small manifest rather than a complex deployment.
+
+---
+
+## Vendor Neutral
+
+Bellfry should not depend on any single AI provider or language model.
+
+Whether an agent uses GPT, Gemini, Claude, open-source models, or future technologies should be irrelevant.
+
+---
+
+## Extensible
+
+The specification should evolve without breaking existing implementations.
+
+---
+
+## Simple
+
+Developers should be able to publish an agent in minutes rather than days.
+
+---
+
+# Relationship to Existing Standards
+
+Bellfry does not seek to replace existing communication protocols.
+
+Instead, it complements them.
+
+Existing technologies such as REST APIs, Model Context Protocol (MCP), Google's Agent-to-Agent (A2A) initiatives, and future interoperability standards can all coexist with Bellfry.
+
+Bellfry focuses on discovery.
+
+Those technologies focus on communication.
+
+Together they provide a more complete ecosystem.
+
+---
+
+# Potential Applications
+
+Potential use cases include:
+
+Business AI Services
+
+Developer Tools
+
+Enterprise Knowledge Systems
+
+Customer Support
+
+Restaurant Ordering
+
+Home Services
+
+Healthcare Information
+
+Mortgage Services
+
+Education
+
+Government Services
+
+Manufacturing
+
+Supply Chain Automation
+
+Any environment where AI systems expose reusable capabilities may benefit from standardized discovery.
+
+---
+
+# Business Opportunity
+
+Bellfry is envisioned as both an open specification and a practical ecosystem.
+
+Potential services include:
+
+* Public agent registry
+* Verified business listings
+* Managed hosting
+* Analytics
+* Monitoring
+* Developer SDKs
+* Validation tools
+* Enterprise registries
+* Private discovery networks
+
+The registry itself remains lightweight while allowing value-added services to evolve around it.
+
+---
+
+# Roadmap
+
+Initial development focuses on proving the concept rather than solving every problem.
+
+### Phase 1
+
+* Draft manifest specification
+* JSON schema
+* Python reference implementation
+* Validator
+* Documentation
+
+### Phase 2
+
+* Registry service
+* Search interface
+* REST API
+* Developer portal
+
+### Phase 3
+
+* SDKs
+* Authentication support
+* Protocol adapters
+* Community feedback
+* Version 1.0 specification
+
+---
+
+# Conclusion
+
+Artificial intelligence is changing how software communicates.
+
+The next generation of applications may rely less on manually configured integrations and more on dynamic discovery of specialized services.
+
+Bellfry explores one possible foundation for that future.
+
+By providing a lightweight, open mechanism for publishing identity and capabilities, Bellfry seeks to make AI agents easier to discover, easier to integrate, and easier to trust.
+
+The project is intentionally small in scope but ambitious in vision.
+
+Rather than building another AI model, Bellfry aims to help intelligent systems find one another—creating an open discovery layer that can evolve alongside the next generation of AI applications.
+
+The future Internet may not simply connect documents.
+
+It may connect intelligence.
+
+Bellfry is an exploration of how that journey might begin.
+
+---
+
+where the bots live;
+
+I think this is where your previous work starts to compound.
+
+From what we've worked on together, you've already built or planned several reusable pieces:
+
+Python backend architecture
+REST APIs
+Telegram integration
+Planned Discord integration
+Knowledge organization concepts
+AI orchestration ideas
+
+Those aren't separate projects anymore—they can become Bellfry clients.
+
+Don't think "Telegram Bot"
+
+Think:
+
+Telegram Client
+
+Likewise:
+
+Discord Client
+
+Web Client
+
+CLI Client
+
+Python SDK
+
+VS Code Extension
+
+API
+
+Every one of these talks to the same Bellfry API.
+
+Architecture
+                    Bellfry
+
+             Registry / Discovery API
+                      │
+      ┌───────────────┼───────────────┐
+      │               │               │
+      ▼               ▼               ▼
+ Telegram Bot     Discord Bot     Website
+
+      ▼               ▼               ▼
+
+      Same Python Backend
+
+Notice...
+
+You only write the discovery logic once.
+
+Telegram
+
+Telegram becomes incredibly useful.
+
+Imagine:
+
+/find mortgage
+
+/find weather
+
+/find pizza
+
+/find calendar
+
+/verify agent
+
+/publish
+
+Telegram is now a mobile frontend for Bellfry.
+
+Discord
+
+Discord is probably even more valuable.
+
+Why?
+
+Developers already live there.
+
+Imagine channels like:
+
+#new-agents
+
+#spec-discussion
+
+#manifest-help
+
+#python-sdk
+
+#agent-showcase
+
+The Discord bot could answer:
+
+/lookup HVAC
+
+/register
+
+/search
+
+/manifest
+
+/status
+
+It becomes both a community hub and a functional interface to the registry.
+
+Your Existing API
+
+Don't throw it away.
+
+Expand it.
+
+Instead of:
+
+Telegram
+
+↓
+
+Your API
+
+make it:
+
+Telegram
+
+↓
+
+Bellfry API
+
+↓
+
+Registry
+
+↓
+
+Database
+
+Now every client uses the same endpoints.
+
+Python SDK
+
+Everything should use the SDK internally.
+
+from bellfry import Client
+
+client.search()
+
+client.publish()
+
+client.verify()
+
+client.lookup()
+
+Even your Telegram bot.
+
+The Registry API
+
+Something like:
+
+GET /search
+
+GET /agent/{id}
+
+POST /publish
+
+POST /verify
+
+GET /health
+
+GET /categories
+
+Every client consumes these.
+
+One REALLY interesting idea
+
+Your Discord bot could become:
+
+Bellfry Assistant
+
+Developer asks:
+
+Find an MCP compatible weather agent.
+
+Discord bot searches Bellfry.
+
+Returns:
+
+Name
+Capabilities
+Manifest
+Endpoint
+Documentation
+
+That's genuinely useful.
+
+The Community
+
+This is something I think a lot of technical founders underestimate.
+
+Your first product might not be the registry.
+
+It might be the community around the registry.
+
+Bellfry Discord
+
+↓
+
+People publish manifests
+
+↓
+
+People test them
+
+↓
+
+People discuss standards
+
+↓
+
+People improve SDK
+
+↓
+
+Registry grows
+
+That creates momentum before you have thousands of registered agents.
+
+What I would NOT build
+
+I wouldn't spend months making Telegram or Discord feature-rich.
+
+They are interfaces, not the product.
+
+Keep them thin.
+
+What I WOULD build first
+Bellfry Core
+
+↓
+
+REST API
+
+↓
+
+Python SDK
+
+↓
+
+CLI
+
+↓
+
+Website
+
+↓
+
+Telegram
+
+↓
+
+Discord
+
+Everything hangs off the Core.
+
+I think there's an even bigger opportunity
+
+Based on everything we've worked on over the past few months, I see Bellfry becoming your hub project.
+
+Right now you have several independent ideas:
+
+Business Brain
+Knowledge catalogs
+Telegram bot
+Discord bot
+AI agents
+Discovery
+Python APIs
+
+Bellfry can become the platform that ties them together.
+
+For example:
+
+Your Telegram bot becomes a mobile client for Bellfry.
+Your Discord bot becomes the developer and community client.
+Your Business Brain becomes one type of agent that registers itself with Bellfry.
+Your knowledge catalogs become the content behind those Business Brains.
+
+That gives you a coherent product ecosystem instead of several unrelated projects. More importantly, it lets you build incrementally: every component you finish immediately has a place in the larger architecture, and every new capability makes the overall platform more valuable. That's a much more efficient way to build than treating each idea as a separate startup.
