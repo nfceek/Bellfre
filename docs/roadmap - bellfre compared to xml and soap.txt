@@ -1,0 +1,128 @@
+we could be the xml AND the SOAP layer 
+
+Yes — that analogy is actually closer than the luggage analogy, with one important adjustment.
+
+Bellfre could be thought of as defining both the description layer and the operating layer, but we should be careful not to recreate the mistakes of older architectures.
+
+The mapping would look something like this:
+
+Older Web Services	Bellfre Equivalent
+XML Schema (what is the data?)	Agent Manifest / Agent Envelope
+SOAP Contract (how do we interact?)	Agent Runtime / Capability Contracts
+WSDL (what operations exist?)	Tool Contracts / Capability Definitions
+Service Registry (where do I find services?)	Agent Discovery Nodes
+Enterprise Service Bus	Agent Ecosystem / Federation Layer
+
+So the analogy:
+
+Old World
+
+XML
+ |
+ | describes data
+ v
+
+SOAP
+ |
+ | defines operations
+ v
+
+Service Registry
+ |
+ | finds services
+
+
+New World
+
+Bellfre Agent Envelope
+ |
+ | describes the agent
+ v
+
+Bellfre Agent Runtime
+ |
+ | defines behavior and capabilities
+ v
+
+Discovery Network
+ |
+ | finds agents
+
+However, I would avoid saying:
+
+"Bellfre is the SOAP of agents."
+
+because SOAP became associated with a very rigid, heavyweight approach.
+
+The better positioning:
+
+Bellfre defines the structural and operational standard for agents, while allowing modern communication protocols to connect them.
+
+The key insight is that current agent standards are mostly solving pieces:
+
+MCP
+
+"What tools/resources can an agent access?"
+
+Agent ---> Tool
+A2A
+
+"How can agents communicate?"
+
+Agent <----> Agent
+Bellfre
+
+"What is this agent, what does it contain, what can it do, who owns it, and how should it operate?"
+
+              Bellfre Agent
+
+        +--------------------+
+        | Identity           |
+        | Ownership          |
+        | Profile            |
+        | Memory             |
+        | Tools              |
+        | Capabilities       |
+        | Permissions        |
+        | Lifecycle          |
+        | Discovery Metadata |
+        +--------------------+
+
+             |
+             |
+     A2A / MCP / APIs / Events
+
+This also reinforces something important about the personal → enterprise model:
+
+A2A does not care if the agent belongs to:
+
+an individual
+a small business
+a bank
+a government agency
+
+It just moves messages.
+
+Bellfre defines the agent's organizational identity and operating model.
+
+I would add a new FAQ concept:
+
+"Bellfre is the agent definition and operating layer."
+
+Business rule:
+
+BR-ARCH-008: Agent Definition Layer
+
+Bellfre defines the structure, identity, capabilities, and lifecycle of an agent.
+
+External protocols may be used for communication and integration, but Bellfre provides the standardized model that allows agents to be understood and managed.
+
+One caution: the XML/SOAP era also taught an important lesson — standards win when they are easy to adopt.
+
+So the first Bellfre agent should probably be:
+
+simple enough for a single developer to create,
+structured enough for enterprise discovery,
+extensible enough to survive future protocols.
+
+That personal → enterprise continuity may actually be the strongest differentiator.

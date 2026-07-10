@@ -239,3 +239,17 @@ Agents, tools, memory, and services should remain independent where practical.
 ## BR-005: Naming Is Evolutionary
 
 Current Bellfre terminology establishes a working vocabulary and may change as the platform develops.
+
+## BR-006: Bellfre Compatibility
+
+Bellfre should support existing and emerging interoperability standards rather than compete with them.
+
+Bellfre defines agent structure, lifecycle, and governance while allowing external protocols to handle communication and resource exchange.
+
+## BR-007: Single Agent Model
+
+Personal, business, and enterprise agents use the same underlying Bellfre architecture.
+
+Differences between deployments are defined through profiles, permissions, resources, and governance—not separate agent standards.
+
+
