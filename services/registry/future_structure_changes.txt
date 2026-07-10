@@ -1,0 +1,9 @@
+registry/
+
+api/
+
+database/
+
+search/
+
+authentication/
