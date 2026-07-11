@@ -12,6 +12,8 @@ All notable changes to this project will be documented in this file.
 
 - 0.1.3 build example agent for baseline of sdk and rest of discovery toolset
 
+- 0.1.3.1 file structure
+
 
 
 ### MILESTONE

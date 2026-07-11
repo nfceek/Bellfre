@@ -1,37 +1,137 @@
 """
-Bellfre Example Agent Tool
-Calculator Tool v0.1
+Bellfre Example Agent Capability
+Calculator Capability v0.2
 
 Purpose:
-    Provides basic arithmetic operations for an AI agent.
+    Provides deterministic arithmetic operations for a Bellfre agent.
+
+Architecture:
+    The calculator is a capability, not the agent itself.
+
+    The agent decides:
+        "Can this capability handle the request?"
+
+    The calculator decides:
+        "How do I execute the calculation?"
 
 Future:
-    This interface can become the standard Bellfre Tool contract.
+    This capability can be paired with:
+        - BAT metadata
+        - Agent Manifest entries
+        - LLM-based intent routing
 """
 
 
 class Calculator:
     """
-    Basic calculator tool.
+    Basic arithmetic capability.
     """
 
-    name = "calculator"
-    description = "Performs basic arithmetic calculations."
+    name = "arithmetic.calculate"
+
+    description = (
+        "Performs mathematical calculations using "
+        "deterministic code."
+    )
+
+    def can_handle(self, request):
+        """
+        Determine whether this capability can process a request.
+
+        Current MVP:
+            Handles simple arithmetic expressions.
+
+        Future:
+            Intent routing will determine this.
+        """
+
+        if not isinstance(request, str):
+            return False
+
+        operators = ["+", "-", "*", "/"]
+
+        return any(
+            operator in request
+            for operator in operators
+        )
+
+    def execute_request(self, request):
+        """
+        Convert a user request into a calculator operation.
+
+        Example:
+            "2+2"
+
+        becomes:
+
+            execute("add", 2, 2)
+        """
+
+        try:
+
+            if "+" in request:
+                a, b = request.split("+")
+                return self.execute(
+                    "add",
+                    float(a),
+                    float(b)
+                )
+
+            elif "-" in request:
+                a, b = request.split("-")
+                return self.execute(
+                    "subtract",
+                    float(a),
+                    float(b)
+                )
+
+            elif "*" in request:
+                a, b = request.split("*")
+                return self.execute(
+                    "multiply",
+                    float(a),
+                    float(b)
+                )
+
+            elif "/" in request:
+                a, b = request.split("/")
+                return self.execute(
+                    "divide",
+                    float(a),
+                    float(b)
+                )
+
+            return {
+                "success": False,
+                "error": "Unable to parse calculation"
+            }
+
+        except Exception as e:
+            return {
+                "success": False,
+                "error": str(e)
+            }
 
     def execute(self, operation, a, b):
         """
         Execute a calculation.
 
         Args:
-            operation (str): add, subtract, multiply, divide
-            a (float): first number
-            b (float): second number
+            operation:
+                add, subtract, multiply, divide
+
+            a:
+                first number
+
+            b:
+                second number
 
         Returns:
-            dict: structured tool response
+            structured capability response
         """
 
         try:
+
             if operation == "add":
                 result = a + b
 
@@ -42,6 +142,7 @@ class Calculator:
                 result = a * b
 
             elif operation == "divide":
+
                 if b == 0:
                     return {
                         "success": False,
@@ -58,7 +159,7 @@ class Calculator:
 
             return {
                 "success": True,
-                "tool": self.name,
+                "capability": self.name,
                 "operation": operation,
                 "input": {
                     "a": a,
@@ -68,23 +169,26 @@ class Calculator:
             }
 
         except Exception as e:
+
             return {
                 "success": False,
                 "error": str(e)
             }
 
 
-# Standalone test
+# Standalone capability test
 if __name__ == "__main__":
 
     calc = Calculator()
 
     tests = [
-        ("add", 10, 5),
-        ("subtract", 10, 5),
-        ("multiply", 10, 5),
-        ("divide", 10, 5)
+        "10+5",
+        "10-5",
+        "10*5",
+        "10/5"
     ]
 
-    for operation, a, b in tests:
-        print(calc.execute(operation, a, b))
+    for test in tests:
+        print(test)
+        print(calc.execute_request(test))
+        print()
