@@ -253,3 +253,20 @@ Personal, business, and enterprise agents use the same underlying Bellfre archit
 Differences between deployments are defined through profiles, permissions, resources, and governance—not separate agent standards.
 
 
+## BR-NET-001: Discovery is decentralized by design.
+
+Intent: Bellfre should be architected so that agent discovery can operate across multiple independently operated discovery nodes. No single discovery node should be required for the Bellfre ecosystem to function.
+
+That doesn't commit you to blockchain, DHTs, or any specific protocol. It simply states the architectural goal: the ecosystem should not depend on a single central registry.
+
+That gives you room to prototype with a simple centralized registry initially, then evolve toward a federated or peer-to-peer discovery network as the project matures. I think that's the safer path because it lets you validate the agent model before taking on the much harder problem of distributed systems.
+
+## BR-LLM-001: Bellfre is model-agnostic.
+
+Bellfre defines the architecture, lifecycle, discovery, and interoperability of agents. Reasoning is supplied through interchangeable LLM providers. No Bellfre component should require a specific language model or vendor API to function.
+
+I think this is one of the most important architectural decisions we've made. It keeps Bellfre from becoming "another Claude framework" or "another OpenAI framework" and instead positions it as the portable operating architecture that can outlive any single model provider.
+
+## BR-COST-001: Use deterministic computation whenever possible. 
+
+Invoke an LLM only when reasoning, interpretation, or generation is required.
