@@ -1,0 +1,111 @@
+Yes. The ecosystem has matured quickly, but it's also fragmented. Most SDKs focus on orchestrating agents rather than defining a standardized agent architecture. That's where I think Bellfre has room to differentiate.
+
+Here's how I'd group the major players:
+
+Framework	Best At	Where Bellfre Differs
+LangGraph	Complex workflows, durable execution, state machines	Bellfre would define the agent itself, not just the workflow.
+OpenAI Agents SDK	Lightweight OpenAI-native agents, tool use, handoffs	Bellfre should be model-agnostic and focused on architecture.
+CrewAI	Role-based multi-agent teams	Bellfre defines standardized agent structure instead of team behavior.
+Microsoft Agent Framework / Semantic Kernel	Enterprise and .NET integration	Bellfre could become the portable architecture independent of Microsoft.
+Google ADK	Google Cloud-native agents	Bellfre would not be cloud-provider specific.
+LlamaIndex	Document-centric agents and RAG	Bellfre treats this as one capability, not the foundation.
+What they all have in common
+
+Nearly every framework answers:
+
+"How do I build an AI agent?"
+
+They provide things like:
+
+Prompt management
+Memory
+Tool calling
+Multi-agent orchestration
+Workflow execution
+Model integration
+
+What they generally don't define is:
+
+A universal agent identity
+A portable agent manifest
+A lifecycle standard
+A discovery representation
+A profile model (personal → business → enterprise)
+
+That gap is where Bellfre can live.
+
+I think Bellfre's value proposition is different
+
+Instead of saying:
+
+"We're another agent SDK."
+
+I'd position it as:
+
+"Bellfre is an Agent Architecture SDK."
+
+Meaning:
+
+It defines what a Bellfre-compatible agent looks like.
+It provides builders, validators, and runtimes for that architecture.
+It can plug into existing orchestration frameworks rather than replace them.
+
+For example:
+
+                Bellfre
+
+          Agent Definition
+          Agent Manifest
+          Agent Profile
+          Agent Discovery
+          Tool Contracts
+                |
+      -------------------------
+      |           |           |
+   LangGraph   OpenAI SDK   CrewAI
+
+Bellfre becomes the common architectural layer, while the others become execution engines or integrations.
+
+This leads to an important roadmap item
+
+I think we should stop thinking of Bellfre as one SDK.
+
+Instead, the roadmap becomes:
+
+Bellfre SDK
+
+├── Agent SDK
+│   ├── Agent Builder
+│   ├── Manifest Builder
+│   ├── Profile Builder
+│   └── Validation
+│
+├── Tool SDK
+│   ├── Tool Builder
+│   ├── Contract Builder
+│   └── Tool Registry
+│
+├── Discovery SDK
+│   ├── Discovery Node Builder
+│   ├── Registry
+│   ├── Search
+│   └── Discovery APIs
+│
+├── Runtime SDK
+│   ├── Local Runtime
+│   ├── State Management
+│   └── Lifecycle
+│
+└── Integration SDK
+    ├── A2A Adapter
+    ├── MCP Adapter
+    ├── OpenAI Adapter
+    ├── LangGraph Adapter
+    └── CrewAI Adapter
+
+That positioning is much harder to copy because it isn't trying to beat LangGraph or CrewAI at orchestration. Instead, Bellfre provides the standardized architecture that those frameworks can execute.
+
+One thought I'd suggest adding to the Bellfre vision is:
+
+Bellfre should strive to make an agent portable. If an agent is built with Bellfre, it should be possible to run it locally, in a business environment, or on top of another orchestration framework with minimal changes. That kind of portability is a compelling architectural goal and complements existing interoperability efforts rather than competing with them.
+
