@@ -1,0 +1,30 @@
+bellfre:
+  version: "1.0"
+
+agent:
+  name: Bellfre Calculator
+  version: "0.1.0"
+  description: >
+    A capability-based agent that performs deterministic
+    mathematical calculations and can be extended with
+    reasoning capabilities.
+
+runtime:
+  language: python
+
+capabilities:
+
+  - id: arithmetic.calculate
+    type: deterministic
+    description: >
+      Performs mathematical calculations using local
+      execution without requiring an LLM.
+
+  - id: mathematics.explain
+    type: reasoning
+    description: >
+      Provides mathematical explanations, concepts,
+      and historical context using reasoning capability.
+
+execution:
+  entrypoint: run.py
