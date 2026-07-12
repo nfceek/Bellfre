@@ -182,9 +182,7 @@ The Identity and Discovery Layer for AI Agents
 
 <li><a href="/sdk/">SDK</a></li>
 
-<li><a href="/foundation/">Foundation</a></li>
-
-<li><a href="/spec/">Specifications</a></li>
+<li><a href="clearinghouse/index.php">Clearinghouse</a></li>
 
 <li><a href="/registry/">Registry</a></li>
 
