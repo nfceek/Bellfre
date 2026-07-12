@@ -1,11 +1,12 @@
 <?php
+// Bellfre Clearinghouse
+// Public Agent Discovery Page
 
-require_once "../includes/db.php";
+require_once "../include/db.php";
 
 $page_title = "Bellfre Clearinghouse";
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,15 +21,16 @@ $page_title = "Bellfre Clearinghouse";
 <?php echo $page_title; ?>
 </title>
 
+<meta name="description" content="The Bellfre Clearinghouse is the public discovery layer for AI agents, providing identity, capability, and namespace information through BUI and BAT standards.">
+
 
 <style>
 
 body{
-
-    font-family:Arial, Helvetica, sans-serif;
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
     background:#f6f8fa;
     color:#333;
-
 }
 
 
@@ -36,7 +38,7 @@ body{
 
     max-width:1000px;
     margin:50px auto;
-    background:white;
+    background:#fff;
     padding:40px;
     border-radius:10px;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
@@ -45,15 +47,15 @@ body{
 
 
 h1{
-
+    font-size:2.8rem;
     margin-bottom:5px;
-
 }
 
 
 .tagline{
 
     color:#666;
+    font-size:1.2rem;
     margin-bottom:35px;
 
 }
@@ -64,7 +66,7 @@ h1{
     border:1px solid #ddd;
     border-radius:8px;
     padding:20px;
-    margin-bottom:20px;
+    margin:20px 0;
 
 }
 
@@ -79,19 +81,31 @@ h1{
 }
 
 
+.badge{
+
+    display:inline-block;
+    background:#eef5ff;
+    color:#2459a6;
+    padding:8px 14px;
+    border-radius:20px;
+
+}
+
+
 .capability{
 
     display:inline-block;
     background:#eee;
     padding:5px 10px;
-    margin:3px;
     border-radius:15px;
+    margin:3px;
     font-size:.85rem;
 
 }
 
 
 </style>
+
 
 </head>
 
@@ -108,70 +122,69 @@ Bellfre Clearinghouse
 
 
 <div class="tagline">
-The public directory for AI agent identity, capability, and discovery.
+The identity and discovery layer for AI agents.
 </div>
 
 
-<p>
-The Clearinghouse is the first implementation of the Bellfre Namespace System.
-Agents are registered with a unique Bellfre Unique Identifier (BUI),
-published through a Bellfre Agent Tag (BAT), and made discoverable.
-</p>
+<div class="badge">
+BUI • BAT • BNS • Agent Discovery
+</div>
 
 
 
 <h2>
-Registered Agents
+What is the Clearinghouse?
 </h2>
 
+
+<p>
+The Bellfre Clearinghouse is the public directory and identity service
+for AI agents.
+</p>
+
+
+<p>
+It allows agents to identify themselves, describe their capabilities,
+and become discoverable by people, applications, and other agents.
+</p>
+
+
+<p>
+Every registered agent receives a permanent Bellfre Unique Identifier
+(BUI) and publishes a Bellfre Agent Tag (BAT) describing what it can do.
+</p>
+
+
+
+
+<h2>
+Registered Publishers
+</h2>
 
 
 <?php
 
 
-$sql = "
+$publisher_sql = "
 
 SELECT
 
-a.agent_bui,
-a.agent_name,
-a.version,
-a.description,
+publisher_code,
+name,
+website
 
-p.name AS publisher_name,
-p.publisher_code
+FROM publishers
 
-FROM bns_agents a
-
-JOIN bns_publishers p
-
-ON a.publisher_id = p.publisher_id
-
-WHERE a.status='published'
-
-ORDER BY a.agent_name ASC
+ORDER BY name ASC
 
 ";
 
 
-$stmt = $pdo->prepare($sql);
-
-$stmt->execute();
-
-
-$agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$publisher_result = $pdo->query($publisher_sql);
 
 
 
-if(count($agents) == 0){
-
-    echo "<p>No registered agents yet.</p>";
-
-}
-
-
-
-foreach($agents as $agent){
+foreach($publisher_result as $publisher){
 
 
 ?>
@@ -180,13 +193,114 @@ foreach($agents as $agent){
 
 
 <h3>
-<?php echo htmlspecialchars($agent['agent_name']); ?>
+
+<?php echo htmlspecialchars($publisher['name']); ?>
+
 </h3>
 
 
 <p>
 
-<strong>BUI:</strong>
+<strong>
+Publisher ID:
+</strong>
+
+<?php echo htmlspecialchars($publisher['publisher_code']); ?>
+
+</p>
+
+
+<?php if($publisher['website']){ ?>
+
+<p>
+
+<a href="<?php echo htmlspecialchars($publisher['website']); ?>">
+
+<?php echo htmlspecialchars($publisher['website']); ?>
+
+</a>
+
+</p>
+
+<?php } ?>
+
+
+</div>
+
+
+<?php
+
+}
+
+?>
+
+
+
+
+
+<h2>
+Registered Agents
+</h2>
+
+
+<?php
+
+
+$agent_sql = "
+
+SELECT
+
+a.agent_bui,
+a.agent_name,
+a.version,
+a.description,
+
+p.name AS publisher
+
+
+FROM agents a
+
+
+JOIN publishers p
+
+ON a.publisher_id = p.publisher_id
+
+
+WHERE a.status='published'
+
+
+ORDER BY a.agent_name ASC
+
+
+";
+
+
+$agents = $pdo->query($agent_sql);
+
+
+
+foreach($agents as $agent){
+
+
+?>
+
+
+<div class="card">
+
+
+<h3>
+
+<?php echo htmlspecialchars($agent['agent_name']); ?>
+
+</h3>
+
+
+
+<p>
+
+<strong>
+BUI:
+</strong>
 
 <span class="bui">
 
@@ -197,13 +311,14 @@ foreach($agents as $agent){
 </p>
 
 
+
 <p>
 
-<strong>Publisher:</strong>
+<strong>
+Publisher:
+</strong>
 
-<?php echo htmlspecialchars($agent['publisher_name']); ?>
-
-(<?php echo htmlspecialchars($agent['publisher_code']); ?>)
+<?php echo htmlspecialchars($agent['publisher']); ?>
 
 </p>
 
@@ -211,7 +326,9 @@ foreach($agents as $agent){
 
 <p>
 
-<strong>Version:</strong>
+<strong>
+Version:
+</strong>
 
 <?php echo htmlspecialchars($agent['version']); ?>
 
@@ -226,68 +343,6 @@ foreach($agents as $agent){
 </p>
 
 
-
-<h4>
-Capabilities
-</h4>
-
-
-
-<?php
-
-
-$cap_sql = "
-
-SELECT
-
-c.capability_name
-
-FROM bns_capabilities c
-
-JOIN bns_agent_capabilities ac
-
-ON c.capability_id = ac.capability_id
-
-JOIN bns_agents a
-
-ON a.agent_id = ac.agent_id
-
-WHERE a.agent_bui = ?
-
-ORDER BY c.capability_name
-
-";
-
-
-$cap_stmt = $pdo->prepare($cap_sql);
-
-$cap_stmt->execute(
-    [$agent['agent_bui']]
-);
-
-
-$caps = $cap_stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-foreach($caps as $cap){
-
-echo "
-
-<span class='capability'>
-
-".htmlspecialchars($cap['capability_name'])."
-
-</span>
-
-";
-
-}
-
-
-?>
-
-
 </div>
 
 
@@ -295,8 +350,24 @@ echo "
 
 }
 
-
 ?>
+
+
+
+
+<h2>
+Become Part of the Ecosystem
+</h2>
+
+
+<p>
+
+Developers can publish agents, receive a BUI namespace,
+attach BAT manifests, and make their agents discoverable
+through the Bellfre ecosystem.
+
+</p>
+
 
 
 </div>
