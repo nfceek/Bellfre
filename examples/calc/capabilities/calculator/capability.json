@@ -1,0 +1,49 @@
+{
+  "bellfre": {
+    "version": "1.0"
+  },
+
+  "capability": {
+
+    "id": "arithmetic.calculate",
+
+    "name": "Calculator Capability",
+
+    "type": "deterministic",
+
+    "version": "0.1.0",
+
+    "description": "Performs mathematical calculations using local execution without requiring an external reasoning provider.",
+
+    "implementation": {
+      "language": "python",
+      "entrypoint": "calculator.py",
+      "class": "CalculatorCapability"
+    }
+
+  },
+
+  "requirements": {
+
+    "llm_required": false,
+
+    "providers": [
+      "local"
+    ]
+
+  },
+
+  "discovery": {
+
+    "tags": [
+      "mathematics",
+      "calculation",
+      "arithmetic",
+      "numeric"
+    ],
+
+    "category": "utility"
+
+  }
+
+}

@@ -1,0 +1,53 @@
+{
+  "bellfre": {
+    "version": "1.0"
+  },
+
+  "capability": {
+
+    "id": "mathematics.explain",
+
+    "name": "Reasoning Capability",
+
+    "type": "reasoning",
+
+    "version": "0.1.0",
+
+    "description": "Provides mathematical explanations, concepts, and contextual reasoning using a configured reasoning provider.",
+
+    "implementation": {
+      "language": "python",
+      "entrypoint": "reasoning.py",
+      "class": "ReasoningCapability"
+    }
+
+  },
+
+  "requirements": {
+
+    "llm_required": true,
+
+    "providers": [
+      "mock",
+      "chatgpt",
+      "claude",
+      "gemini",
+      "local"
+    ]
+
+  },
+
+  "discovery": {
+
+    "tags": [
+      "mathematics",
+      "reasoning",
+      "education",
+      "explanation"
+    ],
+
+    "category": "knowledge"
+
+  }
+
+}

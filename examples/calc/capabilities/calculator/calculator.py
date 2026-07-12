@@ -1,9 +1,10 @@
 """
 Bellfre Example Agent Capability
-Calculator Capability v0.2
+Calculator Capability v0.3
 
 Purpose:
-    Provides deterministic arithmetic operations for a Bellfre agent.
+    Provides deterministic arithmetic operations
+    for a Bellfre agent.
 
 Architecture:
     The calculator is a capability, not the agent itself.
@@ -17,54 +18,52 @@ Architecture:
 Future:
     This capability can be paired with:
         - BAT metadata
-        - Agent Manifest entries
+        - Capability manifests
+        - Agent discovery
         - LLM-based intent routing
 """
 
 
-class Calculator:
+class CalculatorCapability:
     """
-    Basic arithmetic capability.
+    Deterministic arithmetic capability.
     """
 
-    name = "arithmetic.calculate"
+
+    capability_id = "arithmetic.calculate"
+
+
+    name = "Calculator Capability"
+
 
     description = (
         "Performs mathematical calculations using "
-        "deterministic code."
+        "deterministic local execution."
     )
+
 
     def can_handle(self, request):
         """
         Determine whether this capability can process a request.
-
-        Current MVP:
-            Handles simple arithmetic expressions.
-
-        Future:
-            Intent routing will determine this.
         """
 
         if not isinstance(request, str):
             return False
 
+
         operators = ["+", "-", "*", "/"]
+
 
         return any(
             operator in request
             for operator in operators
         )
 
+
+
     def execute_request(self, request):
         """
-        Convert a user request into a calculator operation.
-
-        Example:
-            "2+2"
-
-        becomes:
-
-            execute("add", 2, 2)
+        Convert a user request into a calculation.
         """
 
         try:
@@ -77,6 +76,7 @@ class Calculator:
                     float(b)
                 )
 
+
             elif "-" in request:
                 a, b = request.split("-")
                 return self.execute(
@@ -84,6 +84,7 @@ class Calculator:
                     float(a),
                     float(b)
                 )
+
 
             elif "*" in request:
                 a, b = request.split("*")
@@ -93,6 +94,7 @@ class Calculator:
                     float(b)
                 )
 
+
             elif "/" in request:
                 a, b = request.split("/")
                 return self.execute(
@@ -101,33 +103,25 @@ class Calculator:
                     float(b)
                 )
 
+
             return {
                 "success": False,
                 "error": "Unable to parse calculation"
             }
 
+
         except Exception as e:
+
             return {
                 "success": False,
                 "error": str(e)
             }
 
+
+
     def execute(self, operation, a, b):
         """
-        Execute a calculation.
-
-        Args:
-            operation:
-                add, subtract, multiply, divide
-
-            a:
-                first number
-
-            b:
-                second number
-
-        Returns:
-            structured capability response
+        Execute deterministic calculation.
         """
 
         try:
@@ -152,14 +146,16 @@ class Calculator:
                 result = a / b
 
             else:
+
                 return {
                     "success": False,
                     "error": f"Unknown operation: {operation}"
                 }
 
+
             return {
                 "success": True,
-                "capability": self.name,
+                "capability": self.capability_id,
                 "operation": operation,
                 "input": {
                     "a": a,
@@ -167,6 +163,7 @@ class Calculator:
                 },
                 "result": result
             }
+
 
         except Exception as e:
 
@@ -176,10 +173,10 @@ class Calculator:
             }
 
 
-# Standalone capability test
+
 if __name__ == "__main__":
 
-    calc = Calculator()
+    calc = CalculatorCapability()
 
     tests = [
         "10+5",
@@ -188,7 +185,13 @@ if __name__ == "__main__":
         "10/5"
     ]
 
+
     for test in tests:
+
         print(test)
-        print(calc.execute_request(test))
+
+        print(
+            calc.execute_request(test)
+        )
+
         print()
