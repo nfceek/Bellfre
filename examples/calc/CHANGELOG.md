@@ -14,4 +14,6 @@ All notable changes to this project will be documented in this file.
 
 - Pillar 1 v 1.0
 
+- feat 0.1.3.2 files and articles
+
 
