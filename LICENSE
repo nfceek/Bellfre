@@ -1,0 +1,241 @@
+# Bellfre Licensing Policy
+
+Version 1.0
+Copyright © 2026 Bellfre
+
+## Overview
+
+Bellfre is an open capability architecture designed to enable applications, agents, and services to discover and utilize specialized capabilities.
+
+The Bellfre project consists of multiple components:
+
+* Open specifications
+* Software development kits (SDKs)
+* Reference implementations
+* Example applications
+* Documentation
+* Websites and branding assets
+
+To encourage adoption while protecting the integrity of the Bellfre ecosystem, different components may use different licensing approaches.
+
+Until individual repositories are separated, this document serves as the single source of licensing guidance.
+
+---
+
+# 1. Bellfre Specifications
+
+## Components Covered
+
+Includes:
+
+* Bellfre Agent Tags (BAT)
+* Bellfre manifests
+* Capability specifications
+* Discovery specifications
+* Protocol documentation
+* Architectural standards
+
+## License
+
+**Apache License 2.0**
+
+Reasoning:
+
+The specification layer is intended to become an open standard.
+
+Apache 2.0 provides:
+
+* Broad implementation rights
+* Commercial adoption rights
+* Patent protections
+* Clear contribution expectations
+
+Organizations may implement Bellfre specifications in open-source or commercial products.
+
+The goal of the specification is adoption and interoperability.
+
+---
+
+# 2. Bellfre SDK
+
+## Components Covered
+
+Includes:
+
+* SDK libraries
+* Capability interfaces
+* Agent runtime
+* Provider adapters
+* Developer tools
+
+## License
+
+**Apache License 2.0**
+
+Reasoning:
+
+The SDK is intended to be the primary developer entry point into the Bellfre ecosystem.
+
+Developers and organizations may:
+
+* Use the SDK commercially
+* Modify the SDK
+* Build applications on top of it
+* Create proprietary solutions
+
+The SDK should reduce barriers to adoption while maintaining clear intellectual property protection.
+
+---
+
+# 3. Bellfre Examples and Reference Applications
+
+## Components Covered
+
+Includes:
+
+* Calculator Agent
+* Recipe Collection Application
+* Tutorial projects
+* Demonstration applications
+* Example capabilities
+
+## License
+
+**Apache License 2.0**
+
+Reasoning:
+
+Examples are intended to teach developers how to build Capability-Enhanced Applications.
+
+Permissive licensing encourages:
+
+* Learning
+* Modification
+* Reuse
+* Commercial experimentation
+
+Examples may be used as starting points for independent applications.
+
+---
+
+# 4. Bellfre Clearinghouse
+
+## Components Covered
+
+Includes:
+
+* Agent registration systems
+* Publisher registration
+* Capability discovery services
+* Reference discovery implementations
+
+## Initial License
+
+**Apache License 2.0**
+
+Reasoning:
+
+The initial Clearinghouse implementation should remain open to encourage ecosystem participation.
+
+Future hosted services, managed infrastructure, enterprise offerings, or commercial network services may operate under separate terms.
+
+Open-source software and commercial services are considered separate products.
+
+---
+
+# 5. Bellfre Website and Brand Assets
+
+## Components Covered
+
+Includes:
+
+* Bellfre website content
+* Logos
+* Branding
+* Marketing materials
+* Articles
+* Published educational content
+
+## Ownership
+
+Copyright © 2026 Bellfre. All rights reserved.
+
+The Bellfre name, branding, logos, website content, and original written materials remain the property of Bellfre.
+
+Permission to view, share, and reference Bellfre materials does not grant permission to:
+
+* Use the Bellfre name as a product identity
+* Create confusingly similar branding
+* Represent independent products as official Bellfre products
+* Modify and redistribute Bellfre website content without permission
+
+The Bellfre brand and software licensing are separate matters.
+
+---
+
+# 6. Commercial Use
+
+Bellfre software components licensed under Apache License 2.0 may be used in commercial applications.
+
+Organizations may build:
+
+* Private applications
+* SaaS products
+* Enterprise systems
+* Commercial agent solutions
+
+using Bellfre-licensed components.
+
+Commercial use does not imply:
+
+* Ownership of Bellfre intellectual property
+* Ownership of the Bellfre brand
+* Official endorsement by Bellfre
+
+---
+
+# 7. Future Repository Structure
+
+When Bellfre is separated into individual repositories, each repository will contain its own LICENSE file.
+
+Expected structure:
+
+```
+bellfre-spec
+    Apache License 2.0
+
+bellfre-sdk
+    Apache License 2.0
+
+bellfre-examples
+    Apache License 2.0
+
+bellfre-clearinghouse
+    Apache License 2.0
+
+bellfre-website
+    Copyright Bellfre
+```
+
+---
+
+# 8. Ownership Statement
+
+Bellfre is currently developed and maintained as an independent project.
+
+Ownership and intellectual property rights are held by Bellfre.
+
+Future corporate entities, including any business entity or DBA established for Bellfre operations, may assume ownership and management responsibilities while preserving the licensing principles established by this document.
+
+---
+
+# Summary
+
+Bellfre follows an open ecosystem approach:
+
+* Open standards encourage interoperability.
+* Open software encourages adoption.
+* Clear branding protects identity.
+* Commercial services may grow alongside open components.
+
+The objective is to create a widely adopted capability ecosystem while maintaining a sustainable foundation for future development.
