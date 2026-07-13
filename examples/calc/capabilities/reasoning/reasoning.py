@@ -26,29 +26,26 @@ This keeps Bellfre agents independent from any single
 AI provider or model ecosystem.
 """
 
+from .providers.mock import MockProvider
+from .providers.openai import OpenAIProvider
+from .providers.claude import ClaudeProvider
+from .providers.gemini import GeminiProvider
+from .providers.ollama import OllamaProvider
 
 from config import REASONING_PROVIDER
-
-
 
 class ReasoningCapability:
     """
     Generic reasoning capability implementation.
     """
-
-
     capability_id = "mathematics.explain"
 
-
     name = "Reasoning Capability"
-
 
     description = (
         "Provides natural language reasoning, explanations, "
         "and contextual responses using the configured provider."
     )
-
-
 
     def can_handle(self, request):
         """
@@ -64,14 +61,12 @@ class ReasoningCapability:
         if not isinstance(request, str):
             return False
 
-
         operators = [
             "+",
             "-",
             "*",
             "/"
         ]
-
 
         # Calculator gets arithmetic requests.
         if any(
@@ -80,10 +75,7 @@ class ReasoningCapability:
         ):
             return False
 
-
         return True
-
-
 
     def execute_request(self, request):
         """
@@ -93,8 +85,6 @@ class ReasoningCapability:
         """
 
         return self.execute(request)
-
-
 
     def execute(self, prompt):
         """
@@ -106,128 +96,44 @@ class ReasoningCapability:
 
         provider = REASONING_PROVIDER.lower()
 
-
         if provider == "mock":
-            return self._mock(prompt)
+            provider = MockProvider()
 
-        elif provider == "chatgpt":
-            return self._chatgpt(prompt)
+        elif provider == "openai":
+            provider = OpenAIProvider()
 
         elif provider == "claude":
-            return self._claude(prompt)
+            provider = ClaudeProvider()
 
         elif provider == "gemini":
-            return self._gemini(prompt)
+            provider = GeminiProvider()
 
-        elif provider == "local":
-            return self._local(prompt)
+        elif provider == "ollama":
+            provider = OllamaProvider()
 
         elif provider == "discovery":
-            return self._discover(prompt)
+            return {
+                "success": False,
+                "capability": self.capability_id,
+                "error": (
+                    "Bellfre Discovery routing is not implemented."
+                )
+            }
+        else:
+            return {
+                "success": False,
+                "capability": self.capability_id,
+                "error": f"Unknown reasoning provider: {provider}"
+            }
 
+        result = provider.execute(prompt)
+        result["capability"] = self.capability_id
 
-        return {
-            "success": False,
-            "capability": self.capability_id,
-            "error": f"Unknown reasoning provider: {provider}"
-        }
-
-
-
-    #
-    # Provider Implementations
-    #
-
-
-    def _mock(self, prompt):
-
-        return {
-            "success": True,
-            "capability": self.capability_id,
-            "provider": "mock",
-            "model": "none",
-            "prompt": prompt,
-            "response": (
-                "Mock reasoning provider. "
-                "No external reasoning engine configured."
-            )
-        }
-
-
-
-    def _chatgpt(self, prompt):
-
-        return {
-            "success": False,
-            "provider": "chatgpt",
-            "error": "ChatGPT connector not implemented."
-        }
-
-
-
-    def _claude(self, prompt):
-
-        return {
-            "success": False,
-            "provider": "claude",
-            "error": "Claude connector not implemented."
-        }
-
-
-
-    def _gemini(self, prompt):
-
-        return {
-            "success": False,
-            "provider": "gemini",
-            "error": "Gemini connector not implemented."
-        }
-
-
-
-    def _local(self, prompt):
-
-        return {
-            "success": False,
-            "provider": "local",
-            "error": "Local reasoning engine not implemented."
-        }
-
-
-
-    def _discover(self, prompt):
-        """
-        Future Bellfre discovery routing.
-
-        Flow:
-
-            Request:
-                mathematics.explain
-
-            Search:
-                BAT / BDN
-
-            Select:
-                available capability
-
-            Execute:
-                remote agent
-        """
-
-        return {
-            "success": False,
-            "provider": "bellfre_discovery",
-            "error": (
-                "Bellfre discovery routing not implemented."
-            )
-        }
-
-
+        return result
 
 #
 # Standalone Test
 #
-
 
 if __name__ == "__main__":
 

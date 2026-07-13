@@ -48,7 +48,11 @@ ENABLE_REASONING = True
 #   "claude"
 #   "ollama"
 #
-REASONING_PROVIDER = "placeholder"
+REASONING_PROVIDER = "mock"
+
+OPENAI_MODEL = "gpt-5.5"
+
+OPENAI_API_KEY = ""
 
 #
 # Logging
