@@ -27,6 +27,8 @@ ENV/
 
 # internal docs
 docs/roadmap/
+docs/stake/
+docs/articles/
 
 # ------------------------------------------------------------
 # Testing / Coverage
