@@ -20,4 +20,8 @@ All notable changes to this project will be documented in this file.
 
 - 0.1.3.4 website structure
 
+- 0.1.3.5 working clearinghouse for listing bellfre datasets
+
+- 0.2.0 milestone - new working calc program no LLM
+
 

@@ -175,23 +175,14 @@ The Identity and Discovery Layer for AI Agents
 <nav>
 
 <ul>
-
-<li><a href="/">Home</a></li>
-
-<li><a href="/articles/">Articles</a></li>
-
-<li><a href="/sdk/">SDK</a></li>
-
-<li><a href="clearinghouse/index.php">Clearinghouse</a></li>
-
-<li><a href="/registry/">Registry</a></li>
-
-<li><a href="/search/">Search</a></li>
-
-<li><a href="/about/">About</a></li>
-
-<li><a href="https://github.com/nfceek/Bellfre" target="_blank">GitHub</a></li>
-
+    <li><a href="/">Home</a></li>
+    <li><a href="/articles/">Articles</a></li>
+    <li><a href="/sdk/">SDK</a></li>
+    <li><a href="clearinghouse/index.php">Clearinghouse</a></li>
+    <li><a href="/registry/">Registry</a></li>
+    <li><a href="/search/">Search</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="https://github.com/nfceek/Bellfre" target="_blank">GitHub</a></li>
 </ul>
 
 </nav>

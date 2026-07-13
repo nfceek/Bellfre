@@ -145,23 +145,20 @@
             padding:40px;
         }
     </style>
-
-
+    
     <script type="application/ld+json">
-    {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"Bellfre",
-    "url":"https://bellfre.com/",
-    "description":"Bellfre is building the identity and discovery layer for AI agents."
-    }
+        {
+        "@context":"https://schema.org",
+        "@type":"WebSite",
+        "name":"Bellfre",
+        "url":"https://bellfre.com/",
+        "description":"Bellfre is building the identity and discovery layer for AI agents."
+        }
     </script>
 </head>
 
     <body>
-            
         <?php include_once './include/header.php'; ?>
-
                     <p>
                     The next generation of AI will not be built around one model doing everything.
                     It will be built from specialized agents with different capabilities,
@@ -366,11 +363,7 @@
                 as AI agents move from isolated applications into open ecosystems.
                 </p>
 
-
-                    <?php
-                    // Including a footer file
-                    include_once './include/footer.php';
-                    ?>
+                    <?php include_once './include/footer.php'; ?>
                 </div>
             </div>
         </div>
